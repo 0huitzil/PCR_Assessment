@@ -17,7 +17,7 @@
 
 The algorithm contained inside the function \verb|segLengths| considers three variables: $\So$, $\St$ and $L$, which represent the length of the left side element, the length of the right side element and the length of the middle segment to be filled, respectively. Moving forward, we will assume that $\So < \St$, due to the nature of the problem, however the function can receive and process $\So \geq \St$.
 
-The algorithm fills the gap $L$ with a list of $n$ elements $\ell$. We will call the length of these elements $\ell_1, \ell_2, \dots, \ell_n$. For now we will not impose conditions on $n$, as those will arise naturally when discussing the algorithm. 
+The algorithm fills the gap $L$ with a list of $n$ segments $\ell$. We will call the length of these segments $\ell_1, \ell_2, \dots, \ell_n$. For now we will not impose conditions on $n$, as those will arise naturally when discussing the algorithm. 
 
 In order to ensure a smooth transition between $\So$ and $\St$, we assume the lengths to have the form 
 \begin{align}
@@ -33,7 +33,7 @@ We can reorder this expression to obtain
     \sum_{i=1}^{n} x_i &= \dfrac{L - n \So}{\St + \So},
 \end{align} 
 which gives us a set of conditions on the $x_i$'s. 
-To ensure that our elements are of increasing length, we assume that these variables have the form
+To ensure that our segments are of increasing length, we assume that these variables have the form
 \begin{align}
     x_i = \alpha i,
 \end{align}
@@ -45,16 +45,16 @@ From this expression we can obtain two conditions on the number of segments $n$.
 \begin{align}
     n < \dfrac{L}{S1}.
 \end{align}
-Second, we need to ensure that all the elements have a length smaller than $St$. Due to the nature of the $x_i$'s, it is enough to check that the last segment $\ell_n < \St$, which gives us the condition. 
+Second, we need to ensure that all the segments have a length smaller than $\St$. Due to the nature of the $x_i$'s, it is enough to check that the last segment $\ell_n < \St$, which gives us the condition. 
 \begin{align}
     \alpha n = \dfrac{2 (L - n \So)}{(n+1) (\St - \So)} &< 1,  \\
     \dfrac{2L + (\So - \St)}{\St + \So} &< n. 
 \end{align} 
-Any $n$ satisfying the conditions in equations (6) and (8) (if there are any) gives us a valid list of element lengths. We choose 
+Any $n$ satisfying the conditions in equations (6) and (8) (if there are any) gives us a valid list of segments lengths. We choose 
 \begin{align}
     n = \ceil[\Bigg]{\dfrac{2L + (\So - \St)}{\St + \So}}
 \end{align}
-to use the minimum number of elements possible. 
+to use the minimum number of segments possible. 
 
 If the parameters are such that 
 \begin{align}
