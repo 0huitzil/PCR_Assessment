@@ -62,7 +62,7 @@ def segLengths(S1: float, S2: float, L: float, divCoeff = 2):
             l = alpha*i 
             lSeg = (sHigh - sLow)*l + sLow 
             segments.append(lSeg)
-    if sLow == S2: #If S2<S1, then the order of the element lengths needs to be reversed
+    if sLow == S2: #If S2<S1, then the order of the segment lengths needs to be reversed
         segments = list(reversed(segments))
     return segments
 # %%
